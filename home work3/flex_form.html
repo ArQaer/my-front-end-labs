@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex form</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        header {
+            background-color: #6395ec;
+            padding: 0 10px ;
+
+        }
+        header > div {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .headerBtn {
+            background-color: #fe6346;
+            padding: 10px;
+            margin: 10px;
+            color: white;
+        }
+
+        .lastBtn {
+            margin-left:auto;
+        }
+
+        .events {
+            display: flex;
+            justify-content: flex-start;
+            margin: 20px 0px;
+        }
+
+        .events > div {
+            padding: 10px;
+            background-color: #fefaef;
+            border: 1px solid wheat;
+            width: 200px;
+        }
+
+        .events > div:first-child {
+            background-color: #f5f5db;
+            flex-grow: 1;
+        }
+
+        .jobs {
+            display: flex;
+            justify-content: flex-start;
+        }
+        .jobs > div {
+            padding: 10px;
+            background-color: #d4681d;
+            color: white;
+            margin: 10px;
+        }
+
+        .jobs > div:first-child {
+            background-color: #a52b2a;
+            min-width: 200px;
+        }
+
+        .description {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .description > button {
+            background-color: #a42d2c;
+            border-radius: 10%;
+            color: white;
+            padding: 10px;
+            margin: 0 10px;
+            align-self: flex-end;
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <button class="headerBtn">Services</button>
+            <button class="headerBtn">Events</button>
+            <button class="headerBtn lastBtn">Sign in</button>
+        </div>
+    </header>
+    <main>
+        <h2>
+            Events
+        </h2>
+        <div class="events">
+            <div>Description</div>
+            <div>date</div>
+            <div>prise</div>
+        </div>
+        <div class="events">
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!</div>
+            <div>13.12.2021</div>
+            <div>228 $</div>
+        </div>
+        <div class="events">
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!</div>
+            <div>13.12.2021</div>
+            <div>228 $</div>
+        </div>
+        <h2>
+            Jobs
+        </h2>
+        <div class="jobs">
+            <div class="title">Developer</div>
+            <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!
+                <button>Apply</button>
+            </div>
+        </div>
+        <div class="jobs">
+            <div class="title">Developer</div>
+            <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum placeat aliquam in officia officiis, corrupti atque. Asperiores laborum fuga sit quibusdam. Magnam incidunt nobis eaque voluptatibus qui aliquid asperiores!
+                <button>Apply</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

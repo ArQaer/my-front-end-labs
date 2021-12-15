@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modale window</title>
+    <style>
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modalWindowContent {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px;
+            top: 100px;
+            left: 30%;
+            border: 3px solid #000000;
+            width: 40%;
+            height: 10%;
+        }
+        
+        #closeBtn {
+            color: #aaa;
+            background-color: rgba(0,0,0,0);
+            border: none;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+        
+        #closeBtn:hover {
+            color: #000;
+        }
+        </style>
+</head>
+<body>
+    
+    <h1>My modal window</h1>
+    <button id="openBtn">Open modale window</button>
+    
+    <div id="modalWindow" class="modal">
+        <div class="modalWindowContent">
+            <p>Hello from my modele window</p>
+            <button id="closeBtn">&times;</button>
+        </div>
+    </div>
+    
+    <script>
+        var modalWindow = document.getElementById("modalWindow");
+        
+        var openBtn = document.getElementById("openBtn");
+        
+        var closeBtn = document.getElementById("closeBtn");
+        
+        openBtn.onclick = function() {
+            modalWindow.style.display = "block";
+        }
+        
+        closeBtn.onclick = function() {
+            modalWindow.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+          if (event.target == modalWindow) {
+            modalWindow.style.display = "none";
+          }
+        }
+    </script>
+
+</body>
+</html>
+
+    

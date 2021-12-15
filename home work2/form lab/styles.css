@@ -1,0 +1,41 @@
+header, footer{
+    background-color: rgb(164, 232, 235);
+    padding: 20px;
+}
+
+main {
+    margin: 20px;
+    width: auto;
+    border: 3px solid rgb(76, 199, 142);
+    border-radius: 10px;
+}
+
+:is(header, footer) button {
+    background-color: rgb(70, 176, 224);
+    color: white;
+    padding: 10px;
+}
+
+.navBtn:hover {
+    background-color: white;
+    color: rgb(70, 176, 224);
+    transition: 500ms;
+}
+
+header > div {
+    text-align: end;
+}
+
+main > div {
+    margin: 10px;
+}
+
+main > div > span + button {
+    background-color: rgb(209, 29, 29);
+    color: white;
+    margin-left: 10px;
+}
+
+span {
+    background-color: coral;
+}

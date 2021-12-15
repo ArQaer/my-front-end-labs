@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework reg. form</title>
+</head>
+<body bgcolor="grey">
+    <form>
+        <center>
+             <table>
+                <tr>
+                    <td colspan="2" align="center">
+                        <h1><u>Registration form</u></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" width="200">First Name</td>
+                    <td><input type="text" required name="first_name" size="50" ></td>
+                </tr>
+                <tr>
+                    <td align="left" >Last Name</td>
+                    <td><input type="text" required name="last_name" size="50" ></td>
+                </tr>
+                <tr>
+                    <td align="left">Nick Name</td>
+                    <td><input type="text" required name="nick_name"size="50" ></td>
+                </tr>
+                <tr>
+                    <td align="left">e-mail</td>
+                    <td><input type="email" required name="email" placeholder="user@mail.com" size="50" ></td>
+                </tr>
+                <tr>
+                    <td align="left" >Password</td>
+                    <td><input type="password" name="password" size="50" ></td>
+                </tr>
+                <tr>
+                    <td align="left" >Date of Birth</td>
+                    <td> <input type="date" required name="birth_date" size="50" > </td>
+                </tr>
+                <tr>
+                    <td align="left" >Gender</td>
+                    <td><label>
+                        <input type="radio" required name="gender"> Man
+                    </label>
+                    <label>
+                        <input type="radio" name="gender"> Woman
+                    </label>
+                    <label>
+                        <input type="radio" name="gender"> Other
+                    </label></td>
+                </tr>
+                <tr>
+                    <td align="left">Mobile</td>
+                    <td><input type="tel" name="mobile" placeholder="XXX-XX-XX-XXX" pattern="\d{3}-\d{2}-\d{2}-\d{3}"size="50" ></td>
+                </tr>
+                <tr>
+                    <td align="left" valign="top">Address</td>
+                    <td><textarea  name="" id="" cols="30" rows="10" style="resize: none;" placeholder="Enter you comment"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" style="margin-right: 50px;">Submit</button>
+                        <button type="reset">Reset</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+     </form>
+</body>
+</html>
