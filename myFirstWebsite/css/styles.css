@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+}
+
+/* Header styles start  */
+
+.header {
+    background: url(../images/header-background-image.png) center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding-bottom: 376px;
+}
+
+.header__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 56px;
+}
+
+.header__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper {
+    max-width: 1062px;
+    min-width: 630px;
+    margin: 0 auto;
+}
+
+.header__item {
+    margin-right: 82px;
+}
+
+.header__item:last-child {
+    margin-right: 0;
+}
+
+.header__link {
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+.intro {
+    padding-top: 263px;
+}
+
+.header__link:hover {
+    opacity: 0.75;
+}
+
+.header__title {
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 60px;
+    color: #FFFFFF;
+    max-width: 620px;
+    margin-bottom: 22px;
+}
+
+.header__description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    max-width: 546px;
+    margin-bottom: 59px;
+}
+
+.search-form__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.search-form__field {
+    min-width: 297px;
+    background-color: transparent;
+    background: url(../images/search-field-icon.svg) 0px 7px ;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    border-bottom: 2px solid #BFC0C5;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-right: 60px;
+    padding-left: 43px;
+    padding-bottom: 22px;
+}
+
+.search-form__field::placeholder {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+.search-form__submit-btn {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    padding: 15px 40px;
+    background-color: #1B7DFF;
+    border: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.search-form__submit-btn:hover {
+
+}
+
+/* Header styles end  */
+
+/* benefit styles start  */
+
+.benefit {
+    /* height: 100vh; */
+}
+
+/* benefit styles end  */
