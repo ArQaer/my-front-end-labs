@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Second Website</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__wrapper">
+                <a class="header__main-page-link" href="../mySecondWebsite/index.html">
+                    <img src="../mySecondWebsite/images/Logo.svg" class="navbar__logo-image"  alt="logo" />
+                </a>
+                <nav class="header__navbar">
+                    <ul class="navbar__list">
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#category">Service</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#top-selling">Destination</a
+                        ></li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#easy-steps">Booking</a></li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#comments">Testimonial</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#!">Login</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="signInBtn navbar__link" href="#!">Sign Up</a>
+                        </li>
+                        <li class="navbar__item localization-menu">
+                            <button class="localization-menu-btn navbar__link" onclick="myFunction()">
+                                EN   &#9660;
+                            </button>
+                            <ul class="dropdown-menu" id="myDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#!">EN</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#!">DE</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#!">UA</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#!">FR</a>
+                                </li>
+                        </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__burger">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="intro__sec">
+            <div class="intro__wrapper wrapper">
+                <div class="bg-holder" style="background-image:url(../mySecondWebsite/images/intro-bg.svg);">
+                </div>
+                <div class="intro__content">
+                    <div class="intro">
+                        <h4 class="intro__sub-title">
+                            Best Destinations around the world
+                        </h4>
+                        <h1 class="intro__title">
+                            Travel, <span class="title-underlined-text">enjoy</span> and live a new and full life
+                        </h1>
+                        <p class="intro__description">
+                            Built Wicket longer admire do barton vanity itself do in it. Preferred to sportsmen it engrossed listening. Park gate sell they west hard for the.
+                        </p>
+                        <div class="intro__buttons-group">
+                            <a class="findMoreBtn" href="#!">
+                                Find out more
+                            </a>
+                            <div class="playDemoBtn-group">
+                                <a class="playDemoBtn" href="#!">
+                                </a>
+                                <span class="playDemoBtnText">
+                                    Play Demo
+                                </span>
+                            </div>
+                            <a class="playDemoBtnShape" href="#!">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="intro__person">
+                        <img class="person-image" src="../mySecondWebsite/images/intro-person.png" alt="person" />
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="category" id="category">
+        <div class="category__wrapper wrapper">
+            <div class="category__titles-group">
+                <div class="category__titles-group-bg-element">
+                    <img src="../mySecondWebsite/images/category-bg-element.svg" style="max-width: 200px" alt="bg-element" />
+                </div>
+                <h4 class="category__subtitle common-subtitle">CATEGORY </h4>
+                <h2 class="category__title common-title">We Offer Best Services</h2>
+            </div>
+            <div class="category__items">
+                <div class="category__item">
+                    <div class="item-hover-element"></div>
+                    <img class="category__item-icon"src="../mySecondWebsite/images/category-icon1.png" width="75" alt="Service" />
+                    <h4 class="category__item-title">Calculated Weather</h4>
+                    <p class="category__item-description">Built Wicket longer admire do barton vanity itself do in it.</p>
+                </div>
+                <div class="category__item">
+                    <div class="item-hover-element"></div>
+                    <img class="category__item-icon"src="../mySecondWebsite/images/category-icon2.png" width="75" alt="Service" />
+                    <h4 class="category__item-title">Best Flights</h4>
+                    <p class="category__item-description">Built Wicket longer admire do barton vanity itself do in it.</p>
+                </div>
+                <div class="category__item">
+                    <div class="item-hover-element"></div>
+                    <img class="category__item-icon"src="../mySecondWebsite/images/category-icon3.png" width="75" alt="Service" />
+                    <h4 class="category__item-title">Local Events</h4>
+                    <p class="category__item-description">Built Wicket longer admire do barton vanity itself do in it.</p>
+                </div>
+                <div class="category__item">
+                    <div class="item-hover-element"></div>
+                    <img class="category__item-icon"src="../mySecondWebsite/images/category-icon4.png" width="75" alt="Service" />
+                    <h4 class="category__item-title">Customization</h4>
+                    <p class="category__item-description">Built Wicket longer admire do barton vanity itself do in it.</p>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="top-selling" id="top-selling">
+        <div class="top-selling__wrapper wrapper">
+            <h4 class="top-selling__subtitle common-subtitle">Top Selling </h4>
+            <h2 class="top-selling__title common-title">Top Destinations</h2>
+            <div class="top-selling__items">
+                <div class="top-selling__item">
+                    <div class="top-selling__item-image">
+                        <img src="./images/top-selling-place1.jpg" alt="Rome, Italty">
+                        <div class="top-selling__item-ui">
+                            <div class="top-selling__item-trip-description">
+                                <div class="destination-text">Rome, Italty</div>
+                                <div class="price-text">$5,42k</div>
+                            </div>
+                            <div class="top-selling__item-trip-duration">
+                                <div class="trip-nav-arrow-wrapper">
+                                    <img src="./images/top-selling-nav-arrow.svg"  alt="naviation arrow">
+                                </div>
+                                <span class="trip-duration-text">10 Days Trip</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-selling__item">
+                    <div class="top-selling__item-image">
+                        <img src="./images/top-selling-place2.jpg" alt="London, UK">
+                        <div class="top-selling__item-ui">
+                            <div class="top-selling__item-trip-description">
+                                <div class="destination-text">London, UK</div>
+                                <div class="price-text">$5,42k</div>
+                            </div>
+                            <div class="top-selling__item-trip-duration">
+                                <div class="trip-nav-arrow-wrapper">
+                                    <img src="./images/top-selling-nav-arrow.svg"  alt="naviation arrow">
+                                </div>
+                                <span class="trip-duration-text">12 Days Trip</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-selling__item">
+                    <div class="top-selling__item-image">
+                        <img src="./images/top-selling-place3.jpg" alt="Europe">
+                        <div class="top-selling__item-ui">
+                            <div class="top-selling__item-trip-description">
+                                <div class="destination-text">Full Europe</div>
+                                <div class="price-text">$15k</div>
+                            </div>
+                            <div class="top-selling__item-trip-duration">
+                                <div class="trip-nav-arrow-wrapper">
+                                    <img src="./images/top-selling-nav-arrow.svg"  alt="naviation arrow">
+                                </div>
+                                <span class="trip-duration-text">15 Days Trip</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="easy-steps" id="easy-steps">
+            <div class="easy-steps__wrapper wrapper">
+                <div class="easy-steps__content">
+                    <div class="easy-steps__text-block">
+                        <h4 class="easy-steps__subtitle common-subtitle">Easy and Fast</h4>
+                        <h2 class="easy-steps__title common-title">Book Your Next Trip In 3 Easy Steps</h2>
+                        <div class="easy-steps__definition-items">
+                            <div class="easy-steps__definition-item">
+                                <div class="easy-steps__definition-item-image-wrapper description_bg_1">
+                                    <img class="easy-steps__definition-item-image" 
+                                    src="./images/easy-steps-selection.svg" alt="selection">
+                                </div>
+                                <div class="easy-steps__definition-item-text">
+                                    <h5 class="easy-steps__definition-item-text-title">
+                                        Choose Destination
+                                    </h5>
+                                    <p class="easy-steps__definition-item-text-description">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="easy-steps__definition-item">
+                                <div class="easy-steps__definition-item-image-wrapper description_bg_2">
+                                    <img class="easy-steps__definition-item-image" 
+                                    src="./images/easy-steps-swimmer.svg" alt="swimmer">
+                                </div>
+                                <div class="easy-steps__definition-item-text">
+                                    <h5 class= "easy-steps__definition-item-text-title">
+                                        Make Payment
+                                    </h5>
+                                    <p class="easy-steps__definition-item-text-description">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="easy-steps__definition-item">
+                                <div class="easy-steps__definition-item-image-wrapper description_bg_3">
+                                    <img class="easy-steps__definition-item-image" 
+                                    src="./images/easy-steps-car.svg" alt="car">
+                                </div>
+                                <div class="easy-steps__definition-item-text">
+                                    <h5 class="easy-steps__definition-item-text-title">
+                                        Reach Airport on Selected Date
+                                    </h5>
+                                    <p class="easy-steps__definition-item-text-description">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="easy-steps__card-item">
+                        <div class="easy-steps__card">
+                            <div class="easy-steps__card-bg-element">
+                                <img src="./images/easy-steps-bg-element.png" style="max-width: 654px;" alt="bg-element">
+                            </div>
+                            <div class="easy-steps__card-image-wrapper">
+                                <img class="easy-steps__card-image"
+                                src="./images/easy-steps-booking-place.jpg" alt="Greece">
+                            </div>
+                            <h5 class="easy-steps__card-title">
+                                Trip To Greece
+                            </h5>
+                            <p class="easy-steps__card-description">
+                                14-29 June | by Robbin joseph
+                            </p>
+        
+                            <div class="easy-steps__card-icons-group">
+                                <span class="easy-steps__card-icons-image-wrapper">
+                                    <img class="easy-steps__card-icons-image"
+                                    src="./images/easy-steps-leaf.svg" alt="leaf-icon">
+                                </span>
+                                <span class="easy-steps__card-icons-image-wrapper">
+                                    <img class="easy-steps__card-icons-image"
+                                    src="./images/easy-steps-map.svg" alt="map-icon">
+                                </span>
+                                <span class="easy-steps__card-icons-image-wrapper">
+                                    <img class="easy-steps__card-icons-image"
+                                    src="./images/easy-steps-send.svg" alt="send-message-icon">
+                                </span>
+                            </div>
+                            <div class="easy-steps__card-people-amount-group">
+                                <div class="easy-steps__card-people-amount-icon-wraper">
+                                    <img class="easy-steps__card-people-amount-icon"
+                                src="./images/easy-steps-building.svg" alt="">
+                                <span class="easy-steps__card-people-amount-text">
+                                    24 people going
+                                </span>
+                                </div>
+                                <div class="easy-steps__card-like-wrapper">
+                                    <img class="easy-steps__card-btn"
+                                    src="./images/easy-steps-like-icon.svg" alt="like">
+                                    <div class="easy-steps__card-like-block">
+                                        <img class="easy-steps__card-like-block-image"
+                                        src="./images/easy-steps-favorite-place.png" alt="Rome">
+                                        <div class="easy-steps__card-like-block-text-group">
+                                            <div class="easy-steps__card-like-block-subtitle">
+                                                Ongoing
+                                            </div>
+                                            <div class="easy-steps__card-like-block-title">
+                                                Trip to Rome
+                                            </div>
+                                            <div class= "easy-steps__card-like-block-percents">
+                                                <span class="easy-steps__card-like-block-percents-amount">
+                                                    40%
+                                                </span>
+                                                <span class="easy-steps__card-like-block-percents-text">
+                                                    complete
+                                                </span>
+                                            </div>
+                                            <div class="easy-steps__card-like-block-progress-bar">
+                                                <div class="easy-steps__card-like-block-progress-line">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </section>
+
+        <section class="comments" id="comments">
+            <div class="comments__wrapper wrapper">
+                <div class="comments__content">
+                    <div class="comments__text-block">
+                        <h4 class="comments__subtitle common-subtitle">
+                            TESTIMONIALS
+                        </h4>
+                        <h2 class="comments__title common-title">
+                            What people say about Us.
+                        </h2>
+                        <div class="comments__indicator-btn-group">
+                            <a href="#!" class="comments__indicator-btn comments__indicator-btn-active"></a>
+                            <a href="#!" class="comments__indicator-btn comments__indicator-btn-unactive"></a>
+                            <a href="#!" class="comments__indicator-btn comments__indicator-btn-unactive"></a>
+                        </div>
+                    </div>
+        
+                    <div class="comments__items">
+                        <div class="comments__item comment-top">
+                            <div class="comments__item-user-avatar"></div>
+                            <div class="comments__item-text-group">
+                                <p class="comments__item-comment-text">
+                                    “On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.”
+                                </p>
+    
+                                <h5 class="comments__item-comment-user-name">
+                                    Mike Taylor
+                                </h5>
+                                <span class="comments__item-comment-user-bio">
+                                    Lahore, Pakistan
+                                </span>
+                            </div>
+                        </div>
+                        <div class="comments__item comment-bottom">
+                            <div class="comments__item-text-group">
+                                <p class="comments__item-comment-text">
+                                    “On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.”
+                                </p>
+                                <h5 class="comments__item-comment-user-name">
+                                    Chris Thomas
+                                </h5>
+                                <span class="comments__item-comment-user-bio">
+                                    CEO of Red Button
+                                </span>
+                            </div>
+                        </div>
+                        <div class="comments__opinion-arrows">
+                            <a href="#!">
+                                <img class="comments__items-up-arrow comments__items-arrow-unactive " src="./images/down-icon.svg" alt="arrow">
+                            </a>
+                            <a href="#!">
+                                <img class="comments__items-down-arrow comments__items-arrow-active" src="./images/down-icon.svg" alt="arrow">
+                            </a>
+                        </div>
+                </div>
+            </div>
+            </section>
+    
+            <div class="partners">
+            <div class="partners__wrapper wrapper">
+                <div class="partners__items">
+                <div class="partners__item">
+                    <div class="partners__item-wrapper">
+                        <img class="partners__item-image" src="./images/partner1.png" alt="" />
+                    </div>
+                </div>
+                <div class="partners__item">
+                    <div class="partners__item-wrapper">
+                        <img class="partners__item-image" src="./images/partner2.png" alt="" />
+                    </div>
+                </div>
+                <div class="partners__item">
+                    <div class="partners__item-wrapper">
+                        <img class="partners__item-image" src="./images/partner3.png" alt="" />
+                    </div>
+                </div>
+                <div class="partners__item">
+                    <div class="partners__item-wrapper">
+                        <img class="partners__item-image" src="./images/partner4.png" alt="" />
+                    </div>
+                </div>
+                <div class="partners__item">
+                    <div class="partners__item-wrapper">
+                        <img class="partners__item-image" src="./images/partner5.png" alt="" />
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <section class="subscribe-panel">
+        <div class="subscribe-panel__wrapper wrapper">
+            <div class="subscribe-panel__background">
+                <div class="bg-send-icon">
+                <img src="./images/mail-form-send-bg-element.png" style="max-width:70px;" alt="send icon" />
+                </div>
+                <div class="bg-element2">
+                <img src="./images/mail-form-bg-element2.png" style="max-width: 264px;" alt="shape" />
+                </div>
+                <div class="bg-element1">
+                    <img src="./images/mail-form-bg-element1.png" style="max-width: 340px;" alt="shape" />
+                </div>
+                <div class="bg-element3">
+                    <img src="./images/mail-form-bg-element3.png" style="max-width: 153px;" alt="shape" />
+                </div>
+                <h3 class="subscribe-panel__description" >Subscribe to get information, latest news and other interesting offers about Cobham</h3>
+                <form class="subscribe-panel__form">
+                    <div class="subscribe-panel__form-wrapper">
+                        <div class="subscribe-panel__form-icon"></div>
+                        <input class="subscribe-panel__email-field" type="email" placeholder="Enter email "/>
+                        <button class="subscribe-panel__subscribe-btn">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </section>
+        <footer class="footer">
+        <div class="footer__wrapper wrapper">
+            <div class="footer__group">
+            <div class="footer__logo-group"> 
+                    <a href="!#">
+                        <img class="footer__logo-image" src="./images/footer-logo2.svg" width="152" alt="jadoo" />
+                    </a>
+                    <p class="footer__logo-discription">Book your trip in minute, get full Control for much longer.</p>
+            </div>
+            <div class="footer__nav-group">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><h4 class="footer__nav-title">Company</h4></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">About</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Careers</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Mobile</a></li>
+                </ul>
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><h4 class="footer__nav-title">Contact</h4></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Help/FAQ</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Press</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Affiliate</a></li>
+                </ul>
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item"><h4 class="footer__nav-title">More</h4></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Airlinefees</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Airline</a></li>
+                    <li class="footer__nav-item"><a class="footer__nav-link" href="#!">Low fare tips</a></li>
+                </ul>
+            </div>
+            <div class="footer__sosial-media-group">
+                <div class="footer__sosial-media-btns"> 
+                    <a class="footer__sosial-media-icon facebook" href="#!"></a>
+                    <a class="footer__sosial-media-icon instagram" href="#!"></a>
+                    <a class="footer__sosial-media-icon twitter" href="#!"></a>
+                </div>
+                <h4 class="footer__store-title">Discover our app</h4>
+                <div class="footer__store-btns"> 
+                    <a href="#!">
+                        <img class="me-2" src="./images/play-store-btn.png" alt="play store" />
+                    </a>
+                    <a href="#!">
+                        <img src="./images/apple-store-btn.png" alt="apple store" />
+                    </a></div>
+            </div>
+            </div>
+        </div>
+        <p class="copyrighText">All rights reserved@jadoo.co </p>
+        </footer>
+    </main>
+    <script>
+        /* Когда пользователь нажимает на кнопку, переключаться раскрывает содержимое */
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show-dropdown-menu");
+        }
+        // Закрыть раскрывающийся список, если пользователь щелкнет за его пределами.
+        window.onclick = function(event) {
+        if (!event.target.matches('.localization-menu-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show-dropdown-menu')) {
+                openDropdown.classList.remove('show-dropdown-menu');
+            }
+            }
+        }
+        }
+        </script>
+</body>
+</html>
