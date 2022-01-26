@@ -194,20 +194,7 @@ body {
     margin-right: 60px;
     padding-left: 43px;
     padding-bottom: 22px;
-    /* https://stackoverflow.com/questions/917610/put-icon-inside-input-element-in-a-form */
 }
-
-/* .search-form__field::before {
-    position: absolute;
-    content: ' ';
-    content: url('../images/search-field-icon.svg');
-    width: 20px;
-    height: 20px;
-    background-image: url(../images/search-field-icon.svg);
-    background-size: 20px;
-    left: 0px;
-    top: 0px;
-} */
 
 .search-form__field::placeholder {
     font-weight: 500;
@@ -376,6 +363,8 @@ body {
 
 .locations__item {
     position: relative;
+    overflow: hidden;
+
 }
 
 .locations__item-title {
@@ -387,6 +376,8 @@ body {
     left: 29px;
 }
 
+
+
 .locations__item-big {
     grid-column: span 3;
 }
@@ -397,15 +388,13 @@ body {
 
 .locations__item-image {
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: 300ms;
 }
 
-.locations__item-big > img {
-    height: 100%;
-}
-
-.locations__item-small > img {
-    height: 100%;
+.locations__item:hover img {
+    transform: scale(105%);
 }
 
 .locations__offers-wrapper {
@@ -448,8 +437,8 @@ body {
     margin-bottom: 77px;
 }
 
-.offer__image {
-    max-width: 100%;
+.offer__image img {
+    width: 100%;
 }
 
 .first-offer {
@@ -489,6 +478,10 @@ body {
     max-width: 386px;
     max-height: 377px;
     overflow: hidden;
+}
+
+.top-places__item-image {
+    width: 100%;
 }
 
 .top-places__item {
@@ -573,20 +566,16 @@ body {
 
 /* Videos */
 
-.videos__wrapper {
+.videos__adaptive-wrapper{
     max-width: 1440px;
     margin: 0 auto;
-}
-
-.videos__adaptive-wrapper{
     position: relative;
-    padding-bottom: 56.25%; 
     padding-top: 30px;
-    height: 0;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-}
+} 
 
-.videos__adaptive-wrapper > video {
+.videos__adaptive-wrapper video {
     position: absolute;
     object-fit: inherit;
     top: 0;
@@ -595,27 +584,19 @@ body {
     height: 100%;
   }
 
-/* .videos__adaptive-wrapper > iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  } */
-
-
 /* Videos ^^ */
 
 /* Footer */
 
 .footer {
     background: var(--footer-bg-color);
+    height: 100%;
     padding: 119px 0;
 }
 
 .footer__wrapper {
     max-width: 1440px;
-    max-height: 370px;
+    /* max-height: 370px; */
     margin: 0 auto;
     display: flex;
     flex-wrap: nowrap;
@@ -671,7 +652,6 @@ body {
     }
 
     .footer__nav {
-
         margin-right: 67px;
     }
 
@@ -711,8 +691,26 @@ body {
         margin-bottom: 60px;
     }
 
-    .footer__list:last-child {
-        margin-top: 25px;
+    .top-places__items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__wrapper {
+        /* margin-top: 25px; */
+        flex-direction: column;
+    }
+
+    .footer__nav {
+        /* width: 100%; */
+        margin-left: 35px;
+        margin-right: 0px;
+    }
+
+    .footer__logo {
+        margin-left: 35px;
+        margin-right: 35px;
+        margin-bottom: 20px;
     }
     
     .header__burger {
@@ -729,6 +727,7 @@ body {
 
     .benefits__items {
         margin: 0 40px;
+        flex-direction: column;
     }
 
     .benefits__title {
@@ -736,7 +735,7 @@ body {
     }
 
     .benefits__item {
-        max-width: 160px;
+        max-width: 100%;
         margin-bottom: 60px;
     }
 
@@ -758,14 +757,13 @@ body {
     }
 
     .top-places__wrapper {
-        margin-bottom: 86px;
+        margin-bottom: 0px;
         margin-top: 40px;
     }
 
-    .footer__wrapper {
-        flex-wrap: wrap;
+    .footer {
+        padding: 40px 0;
     }
-
 
     .footer__logo {
         margin-left: 25px;
@@ -777,25 +775,34 @@ body {
         height: 38px;
     }
 
-    .footer__nav {
-        width: 100%;
-        margin-left: 35px;
-        margin-right: 0px;
-    }
-
-    .footer__list{
-        width: 50%;
-    }
 }
 
 @media screen and (max-width: 680px) {
     .search-form__field {
         margin-right: 0;
         width: 100%;
+        min-width: 0;
+    }
+
+    .locations__title-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .custom-title-underline::after {
+        display: none;
     }
 
     .locations__item-big, .locations__item-small{
         grid-column: span 6;
+    }
+
+    .footer__nav {
+        flex-direction: column;
+    }
+
+    .footer__list:not(:last-child) {
+        margin-bottom: 30px;
     }
 
 }
