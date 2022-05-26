@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: bisque;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .flex-wrapper {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .add-todo-wrapper {
+            display: flex;
+            width: 600px;
+            min-height: 40px;
+            align-items: center;
+            background-color: RosyBrown;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .input-wrapper .task-input-text {
+            width: 60%;
+            height: 36px;
+            border: none;
+            font-size: 26px;
+            background-color: black;
+            color: white;
+        }
+
+        .task-add-button, .close-modale-button  {
+            width: 18%;
+            height: 36px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 26px;
+            background-color: coral;
+            color: white;
+        }
+
+        .close-modale-button {
+            background-color: DarkSlateGrey;
+        }
+
+        .add-new-task {
+            height: 36px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 26px;
+            background-color: SpringGreen;
+            color: white;
+        }
+
+        .task-item,
+        .buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .complete-task-btn {
+            margin-right: 20px;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            width: 600px;
+            min-height: 50px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: cornflowerblue;
+        }
+
+        .checked {
+            background-color: ForestGreen;
+        }
+
+        .change-text {
+            text-decoration: line-through;
+        }
+
+        .delete-task-btn {
+            height: 36px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 26px;
+            background-color: Crimson;
+            color: white;
+        }
+
+        .description {
+            font-size: 28px;
+        }
+
+        .popup-modale {
+            display: none;
+            position: fixed;
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .popup {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 56px;
+            left: calc(50% - 300px);
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To Do List</h1>
+    
+    <div class="popup-modale">
+        <div class="popup">
+            <div class="add-todo-wrapper">
+                <div class="input-wrapper">
+                    <input type="text" class="task-input-text" placeholder="Title...">
+                    <button class="task-add-button">Add</button>
+                    <button class="close-modale-button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-wrapper">
+        <button class="add-new-task">Add new task</button>
+        <H2 class="title">Tasks:</H2>
+        <div class="task-wrapper"></div>
+    </div>
+
+    <script>
+
+        const modalWindow = document.querySelector('.popup-modale');
+        const addNewTaskBtn = document.querySelector(".add-new-task");
+        const addTaskBtn = document.querySelector(".task-add-button");
+        const closeModaleWindowBtn = document.querySelector(".close-modale-button");
+        const inputTaskField = document.querySelector(".task-input-text");
+        const taskHolder = document.querySelector(".task-wrapper");
+        const taskTitle = document.querySelector('.title');
+
+        let tasks;
+        !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
+
+        function Task(description) {
+            this.description = description;
+            this.comleted = false;
+        }
+
+        const createItem = (task, index) => {
+            return `
+                <div class="task-item ${task.comleted ? "checked" : ""}">
+                    <div class="description ${task.comleted ? "change-text" : ""}">${task.description}</div>
+                    <div class="buttons">
+                        <input onclick="completeTask(${index})" type="checkbox" class="complete-task-btn" ${task.comleted ? "checked" : ""}>
+                        <button onclick="deleteTask(${index})" class="delete-task-btn">Delete</button>
+                    </div>
+                </div>
+            `
+        }
+
+        const filterTasks = () => {
+            const activeTasks = tasks.filter(item => item.comleted == false);
+            const completedTasks = tasks.filter(item => item.comleted == true);
+            tasks = [...activeTasks, ...completedTasks];
+        }
+
+        const addHtmlList = () => {
+            taskHolder.innerHTML = '';
+            if (tasks.length > 0) {
+                filterTasks();
+                tasks.forEach((item, index) => {
+                    taskHolder.innerHTML += createItem(item, index);
+                });
+            }
+        }
+
+        addHtmlList();
+
+        const titleStatus = () => {
+            if (tasks.length == 1) {
+                taskTitle.innerText = 'Task:';
+            } else if (tasks.length == 0) {
+                taskTitle.innerText = '';
+            } else {
+                taskTitle.innerText = 'Tasks:';
+            }
+        } 
+        
+        titleStatus();
+
+        const reloadList = () => {
+            updateLocal();
+            addHtmlList();
+            titleStatus();
+        }
+
+        const updateLocal = () => {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        const completeTask = (index) => {
+            tasks[index].comleted = !tasks[index].comleted;
+            reloadList();
+        }
+
+        addTaskBtn.addEventListener('click', () => {
+            if (inputTaskField.value === '') {
+                alert("You must write something!");
+            } else {
+                tasks.push(new Task(inputTaskField.value));
+                reloadList();
+                inputTaskField.value = '';
+                modalWindow.style.display = 'none';
+            }
+        })
+
+        const deleteTask = (index) => {
+            tasks.splice(index, 1);
+            reloadList();
+        }
+
+        closeModaleWindowBtn.addEventListener('click', () => {
+            modalWindow.style.display = 'none';
+            inputTaskField.value = '';
+        })
+
+        addNewTaskBtn.addEventListener('click', () => {
+            modalWindow.style.display = 'flex';
+        })
+
+        window.onclick = function(event) {
+          if (event.target ==  modalWindow) {
+            modalWindow.style.display = 'none';
+            inputTaskField.value = '';
+          }
+        }
+    </script>
+</body>
+
+</html>
