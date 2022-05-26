@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: bisque;
+        }
+
+
+        .btn-wrapper {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .task-add-button {
+            width: 300px;
+            height: 36px;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 26px;
+            background-color: coral;
+            color: white;
+        }
+
+        .task-add-button:first-child {
+            margin-top: 10px;
+        }
+
+        .off-btn {
+            background-color: rgb(90, 67, 59);
+        }
+
+        .array-item-all {
+            width: 600px;
+            border: 1px solid black;
+            background-color: blanchedalmond;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .array-item-all div:first-child {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="btn-wrapper">
+        <button class="task-add-button" id="show-all-btn" onclick="showAllRests()">show all</button>
+        <button class="task-add-button" id="show-by-category-btn" onclick="showByCategory()">show by category</button>
+        <button class="task-add-button" id="show-by-menu-btn" onclick="showByMenu()">show by menu</button>
+    </div>
+
+
+    <div class="container-wrapper">
+    </div>
+
+    <script>
+        const showAllBtn = document.querySelector('#show-all-btn');
+        const showByCategoryBtn = document.querySelector('#show-by-category-btn');
+        const showByMenuBtn = document.querySelector('#show-by-menu-btn');
+        let htmlContainer = document.querySelector('.container-wrapper');
+
+        const dataArray = [
+            {
+                restaurantName: 'Express-pizza',
+                restaurantCategory: ['Fast Food', 'Pizzeria'],
+                productCategory: ['Pizza', 'Coffee', 'Burgers', 'Sushi']
+            }, {
+                restaurantName: `McDonald's`,
+                restaurantCategory: ['Fast Food', 'Cafe'],
+                productCategory: ['Burgers', 'Coffee', 'Dessert']
+            }, {
+                restaurantName: 'SushiWok',
+                restaurantCategory: ['Asian Food'],
+                productCategory: ['Sushi', 'Wok']
+            }, {
+                restaurantName: `Marani`,
+                restaurantCategory: ['Georgian Cuisine', 'Cafe'],
+                productCategory: ['Kebab', 'Barbecue', 'Coffee', 'Wine']
+            }, {
+                restaurantName: 'TerraMare',
+                restaurantCategory: ['Fast Food', 'Pizzeria', 'Cafe'],
+                productCategory: ['Pizza', 'Coffee', 'Burgers', 'Tap beer']
+            }, {
+                restaurantName: `Cursal'`,
+                restaurantCategory: ['Night club'],
+                productCategory: ['Beer', 'Tap beer', 'Coffee', 'Strong alcohol']
+            }, {
+                restaurantName: 'Шаурмічна на "Урожаї"',
+                restaurantCategory: ['Fast Food'],
+                productCategory: ['Shawarma', 'Burgers', 'Coffee', 'Ayran']
+            }
+
+        ];
+
+        const createAllItem = arr => {
+            let category = arr.restaurantCategory.reduce((acc, item) => {
+                return acc + ", " + item;
+            });
+
+            let menu = arr.productCategory.join(', ');
+
+            let categoryMult = arr.restaurantCategory.length > 1 ? 'Categories' : 'Category';
+
+            return `
+            <div class="array-item-all">
+            <div>${arr.restaurantName}</div>
+            <div>${categoryMult}: ${category}</div> 
+            <div>Menu: ${menu}</div>
+            </>
+            `
+        }
+
+        const createArrByCategory = arr => {
+            let categoryArr = new Set();
+            arr.forEach(item => item.restaurantCategory.map(category => categoryArr.add(category)));
+
+            let categoryOfRestikArr = [];
+            for (category of categoryArr) {
+
+                let restikNames = arr.filter(item => item.restaurantCategory.includes(category)).reduce((acc, item) => {
+                    acc.push(item.restaurantName);
+                    return acc;
+                }, []);
+
+                let obj = new Object();
+                obj['category'] = category;
+                obj['restaurant'] = restikNames;
+
+                categoryOfRestikArr.push(obj);
+            }
+            return categoryOfRestikArr;
+        }
+
+
+        const createArrByMenu = arr => {
+            let menuArr = new Set();
+            arr.forEach(item => item.productCategory.map(product => menuArr.add(product)));
+
+            let menuOfRestikArr = [];
+            for (product of menuArr) {
+
+                let restikMenu = arr.filter(item => item.productCategory.includes(product)).reduce((acc, item) => {
+                    acc.push(item.restaurantName);
+                    return acc;
+                }, []);
+
+                let obj = new Object();
+                obj['product'] = product;
+                obj['restaurant'] = restikMenu;
+
+                menuOfRestikArr.push(obj);
+            }
+            return menuOfRestikArr;
+        }
+
+
+
+        const createByCategory = arr => {
+            let restaurant = arr.restaurant.join(', ');
+
+            let restMult = arr.restaurant.length > 1 ? 'Restaurants' : 'Restaurant';
+
+            return `
+            <div class="array-item-all">
+            <div>${arr.category}</div>
+            <div>${restMult}: ${restaurant}</div> 
+            `
+        }
+
+        const createByMenu = arr => {
+            let restaurant = arr.restaurant.join(', ');
+
+            let restMult = arr.restaurant.length > 1 ? 'Restaurants' : 'Restaurant';
+
+            return `
+            <div class="array-item-all">
+            <div>${arr.product}</div>
+            <div>${restMult}: ${restaurant}</div> 
+            `
+        }
+
+        const showAllRests = () => {
+            htmlContainer.innerHTML = "";
+            showAllBtn.classList.remove('off-btn');
+            showByCategoryBtn.classList.add('off-btn');
+            showByMenuBtn.classList.add('off-btn');
+            dataArray.forEach(item => {
+                htmlContainer.innerHTML += createAllItem(item);
+            })
+        }
+
+        showAllRests();
+
+        const showByCategory = () => {
+            htmlContainer.innerHTML = "";
+            showAllBtn.classList.add('off-btn');
+            showByCategoryBtn.classList.remove('off-btn');
+            showByMenuBtn.classList.add('off-btn');
+            createArrByCategory(dataArray).forEach(item => {
+                htmlContainer.innerHTML += createByCategory(item);
+            })
+        }
+
+        const showByMenu = () => {
+            htmlContainer.innerHTML = "";
+            showAllBtn.classList.add('off-btn');
+            showByCategoryBtn.classList.add('off-btn');
+            showByMenuBtn.classList.remove('off-btn');
+            createArrByMenu(dataArray).forEach(item => {
+                htmlContainer.innerHTML += createByMenu(item);
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>
