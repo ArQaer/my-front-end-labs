@@ -78,10 +78,6 @@
         const inputEmail = document.querySelector('.input-email');
         const doneBtn = document.querySelector('.btn');
         let userIdCount = 0;
-        inputName.value = 's3s@'; 
-        inputPhone.value = '+380324443333';
-
-
 
         const btnStatus = () => {
             doneBtn.disabled = true;
@@ -115,18 +111,15 @@
         inputName.onblur = () => {
             if (inputName.value.length < 3) {
                 generateError(inputName, 'Name should have more than 3 characters');
-                // btnStatus();
             } else if (!inputName.value.match(/^[a-zA-Zа-яА-ЯіІ]+$/u)) {
                 generateError(inputName, 'Name should not contain extra sybols and numbers');
-                // btnStatus();
             }
             btnStatus();
         };
 
         inputPhone.onblur = () => {
-            if (!inputPhone.value.match(/^\+38|^0\d{9}$/)) {
+            if (!inputPhone.value.match(/^\+380\d{9}$|^0\d{9}$/)) {
                 generateError(inputPhone, 'Enter correct phone starting +380 or 0');
-                // btnStatus();
             }
             btnStatus();
         };
@@ -134,54 +127,41 @@
         inputEmail.onblur = () => {
             if (!inputEmail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
                 generateError(inputEmail, 'Enter valid email. (example: address@domain.com)');
-                // btnStatus();
             }
             btnStatus();
         };
 
         inputName.onfocus = () => {
             deleteError(inputName);
-            btnStatus();
         };
 
         inputPhone.onfocus = () => {
             deleteError(inputPhone);
-            btnStatus();
         };
 
         inputEmail.onfocus = () => {
             deleteError(inputEmail);
-            btnStatus();
         };
 
-        // const generateUserId = () => {
-        //     return function () {
-        //         return userIdCount++;
-        //     }
-        // }
-
         const sendUserToDataBase = async (name, phone, email) => {
-
             const user = { id: userIdCount++, name: name, phone: phone, email: email, currentTime: new Date };
             try {
                 fetch('http://localhost:3000/usersList', {
-                method: "POST",
-                headers: {
-                    'Content-Type': "application/json"
-                },
-                body: JSON.stringify(user)
-            })
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json"
+                    },
+                    body: JSON.stringify(user)
+                })
             } catch (error) {
                 console.log("something went wrong:" + error);
             }
-            
         }
 
 
         const doneBtnClick = () => {
             event.preventDefault();
             sendUserToDataBase(inputName.value, inputPhone.value, inputEmail.value);
-            // console.log(`name: ${inputName.value}, phone: ${inputPhone.value}, email: ${inputEmail.value}`)
         }
     </script>
 
