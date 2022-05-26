@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: bisque;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        .input {
+            width: 400px;
+            height: 36px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            font-size: 26px;
+            color: DarkSlateGrey;
+        }
+
+        .btn {
+            font-size: 26px;
+            height: 36px;
+            background-color: blue;
+            border: none;
+            width: 400px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .form__group {
+            margin-bottom: 20px;
+        }
+
+        .btn-disabled {
+            background-color: red;
+            cursor: not-allowed;
+        }
+
+        .error {
+            font-size: 26px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form" action="">
+        <div class="form__group input-name-wrapper">
+            <input type="text" class="input input-name invalid" placeholder="Name">
+        </div>
+        <div class="form__group input-phone-wrapper">
+            <input type="text" class="input  input-phone invalid" placeholder="Phone">
+        </div>
+        <div class="form__group input-email-wrapper">
+            <input type="text" class="input input-email invalid" placeholder="Email">
+        </div>
+        <button class="btn btn-disabled" onclick="doneBtnClick()" disabled>
+            Done
+        </button>
+    </form>
+
+    <script>
+        const inputName = document.querySelector('.input-name');
+        const inputPhone = document.querySelector('.input-phone');
+        const inputEmail = document.querySelector('.input-email');
+        const doneBtn = document.querySelector('.btn');
+        let userIdCount = 0;
+
+        const btnStatus = () => {
+            doneBtn.disabled = true;
+            doneBtn.classList.add('btn-disabled');
+            if (!inputName.classList.contains('invalid') && !inputPhone.classList.contains('invalid') && !inputEmail.classList.contains('invalid')) {
+                doneBtn.disabled = false;
+                doneBtn.classList.remove('btn-disabled');
+            }
+        }
+
+        const generateError = (inputField, ErrorMessage) => {
+            inputField.style.borderColor = 'red';
+            let error = document.createElement('span');
+            error.className = 'error';
+            error.innerHTML = ErrorMessage;
+            inputField.after(error);
+            if (!inputField.classList.contains('invalid')) {
+                inputField.classList.add('invalid');
+            }
+            btnStatus();
+        }
+
+        const deleteError = (inputField) => {
+            if (inputField.nextElementSibling) {
+                inputField.nextElementSibling.remove();
+                inputField.style.borderColor = '';
+            }
+            inputField.classList.remove('invalid');
+        }
+
+        inputName.onblur = () => {
+            if (inputName.value.length < 3) {
+                generateError(inputName, 'Name should have more than 3 characters');
+            } else if (!inputName.value.match(/^[a-zA-Zа-яА-ЯіІ]+$/u)) {
+                generateError(inputName, 'Name should not contain extra sybols and numbers');
+            }
+            btnStatus();
+        };
+
+        inputPhone.onblur = () => {
+            if (!inputPhone.value.match(/^\+380\d{9}$|^0\d{9}$/)) {
+                generateError(inputPhone, 'Enter correct phone starting +380 or 0');
+            }
+            btnStatus();
+        };
+
+        inputEmail.onblur = () => {
+            if (!inputEmail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+                generateError(inputEmail, 'Enter valid email. (example: address@domain.com)');
+            }
+            btnStatus();
+        };
+
+        inputName.onfocus = () => {
+            deleteError(inputName);
+        };
+
+        inputPhone.onfocus = () => {
+            deleteError(inputPhone);
+        };
+
+        inputEmail.onfocus = () => {
+            deleteError(inputEmail);
+        };
+
+        const sendUserToDataBase = async (name, phone, email) => {
+            const user = { id: userIdCount++, name: name, phone: phone, email: email, currentTime: new Date };
+            try {
+                fetch('http://localhost:3000/usersList', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json"
+                    },
+                    body: JSON.stringify(user)
+                })
+            } catch (error) {
+                console.log("something went wrong:" + error);
+            }
+        }
+
+
+        const doneBtnClick = () => {
+            event.preventDefault();
+            sendUserToDataBase(inputName.value, inputPhone.value, inputEmail.value);
+        }
+    </script>
+
+</body>
+
+</html>
