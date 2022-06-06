@@ -1,0 +1,16 @@
+.square {
+    width: 200px;
+    height: 200px;
+    background: coral;
+    border: 1px solid rebeccapurple ;
+    cursor: pointer;
+    font-size: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square:hover {
+    background: rgb(245, 91, 35);
+    transition: 200ms;
+}
